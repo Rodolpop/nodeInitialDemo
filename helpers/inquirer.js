@@ -1,8 +1,11 @@
 //funciones inquirer aquí
 //https://www.npmjs.com/package/inquirer
 
-const inquirer = require('inquirer');
+
 require('colors');
+
+const inquirer = require('inquirer');
+
 
 const consoleMenu = async() => {
 
@@ -15,9 +18,33 @@ const consoleMenu = async() => {
                 {
                     value: '1',
                     name: `${ '1.'.green } Nombre serie?`
+                },
+                
+                {
+                    value: '1',
+                    name: '1. Crear tarea'
+                },
+                {
+                    value: '2',
+                    name: '2. Actualizar'
+                },
+                {
+                    value: '3',
+                    name: '3. Borrar'
+                },
+                {
+                    value: '4',
+                    name: '4. Listar'
+                },
+                {
+                    value: '0',
+                    name: '0. Salir'
                 }
                 
             ]
+
+
+            
         }
     ];
     
