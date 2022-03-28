@@ -45,7 +45,7 @@ const consoleMenu = async() => {
                 },
                 {
                     value: '8',
-                    name: `${ '8.'.green } borrar serie de la lista de Comenzadas'De frong List`
+                    name: `${ '8.'.green } borrar serie de la lista de Comenzadas`
                 },
                 {
                     value: '0',
