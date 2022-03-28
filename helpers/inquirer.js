@@ -13,33 +13,44 @@ const consoleMenu = async() => {
         {
             type: 'list',
             name: 'selectedOption',
-            message: 'Please select an option',
+            message: 'Selecione una opción',
             choices: [
                 {
                     value: '1',
-                    name: `${ '1.'.green } Nombre serie?`
-                },
-                
-                {
-                    value: '1',
-                    name: '1. Crear tarea'
+                    name: `${ '1.'.green } agregar serie a la lista de tareas`
                 },
                 {
                     value: '2',
-                    name: '2. Actualizar'
+                    name: `${ '2.'.green } Lista de todas las series`
                 },
                 {
                     value: '3',
-                    name: '3. Borrar'
+                    name: `${ '3.'.green } Lista de series pendientes o Wishlist`
                 },
                 {
                     value: '4',
-                    name: '4. Listar'
+                    name: `${ '4.'.green } Lista de series comenzadas`
+                },
+                {
+                    value: '5',
+                    name: `${ '5.'.green } Lista de series ya vistas`
+                },
+                {
+                    value: '6',
+                    name: `${ '6.'.green } Marcar como serie comenzada serie`
+                },
+                {
+                    value: '7',
+                    name: `${ '7.'.green } marcar como serie terminada serie`
+                },
+                {
+                    value: '8',
+                    name: `${ '8.'.green } borrar serie de la lista de Comenzadas'De frong List`
                 },
                 {
                     value: '0',
-                    name: '0. Salir'
-                }
+                    name: `${ '0.'.green } Salir` 
+                },
                 
             ]
 
