@@ -33,7 +33,7 @@ const consoleMenu = async() => {
                 },
                 {
                     value: '5',
-                    name: `${ '5.'.green } Lista de series ya vistas`
+                    name: `${ '5.'.green } Lista de series   ya vistas`
                 },
                 {
                     value: '6',
