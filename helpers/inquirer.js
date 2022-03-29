@@ -25,11 +25,11 @@ const consoleMenu = async() => {
                 },
                 {
                     value: '3',
-                    name: `${ '3.'.green } Lista de series pendientes o Wishlist`
+                    name: `${ '3.'.green } Lista de series         pendientes o Wishlist`
                 },
                 {
                     value: '4',
-                    name: `${ '4.'.green } Lista de series comenzadas`
+                    name: `${ '4.'.green } Lista de series    comenzadas`
                 },
                 {
                     value: '5',
