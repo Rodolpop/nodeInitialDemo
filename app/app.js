@@ -17,8 +17,36 @@ const main = async () => {
         switch (opt) {
             case '1':
                 // crear opcion
-                const input = await readInput('Serie Name:');
-                console.log(input)
+                const serieName = await readInput('Serie Name:');
+                series.addSerie(serieName);
+                break;
+
+            case '2':
+                series.serieList();
+                break;
+
+            case '3': // listas sin empezar
+                series.serieListByType("Wishlist");
+                break;
+
+            case '4': // listar viéndose
+                series.serieListByType("Watching");
+                break;
+
+            case '5': // listar completadas
+                series.serieListByType("Watched");
+                break;
+
+            case '6': // Empezar tarea
+                //
+                break;
+
+            case '7': // Finalizar tarea
+                //
+                    break;
+
+            case '8': // Borrar
+                //
                 break;
         }
 
@@ -28,4 +56,3 @@ const main = async () => {
 }
 
 main();
-
