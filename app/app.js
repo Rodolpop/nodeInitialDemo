@@ -38,7 +38,8 @@ const main = async () => {
                 break;
 
             case '6': // Empezar tarea
-                //
+                const ids1 = await showCheckList(series._listaSeries, "startTime");
+                series.startSerie(ids1)
                 break;
 
             case '7': // Finalizar tarea
