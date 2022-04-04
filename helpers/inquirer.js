@@ -63,10 +63,12 @@ const consoleMenu = async() => {
 
 const consoleMenu = async() => {
     console.clear();
+
     console.log(`    
     +-+-+-+-+-+-+-+
     |N|E|T|F|L|I|X|
     +-+-+-+-+-+-+-+`.red)
+
     const { selectedOption } = await inquirer.prompt(questions);
     return selectedOption;
 }
@@ -119,8 +121,11 @@ const serieToDelete = async( tareas = [] ) => {
     });
 
     choices.unshift({
-        value: '0',
-        name: '0.'.green + ' Cancelar borrado de la serie'
+        
+        //FALTA COMPLETAR
+
+
+
     });
 
     const questions = [
@@ -157,13 +162,12 @@ const showCheckList = async( tareas = [], time ) => {
         const idx = `${i + 1}.`.green;
         return {
             value: tarea.id,
-            name:  `${ idx } ${ tarea.name }`,
-            checked: ( tarea[time] ) ? true : false
+            
         }
     });
     const questions = [
         {
-            type: 'checkbox', //el checkbox va a regresar un array con todos los ids selecconados
+            type: 'checkbox', //el checkbox va a regresar un array con todos los ids selecconados <==== !
             name: 'ids',
             message: `${time} series:`,
             choices
@@ -181,7 +185,7 @@ module.exports = {
     readInput,
     serieToDelete,
     Confirmar,
-    showCheckList
+    
 }
 
 }
