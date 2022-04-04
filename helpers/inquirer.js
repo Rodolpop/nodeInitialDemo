@@ -59,6 +59,9 @@ const consoleMenu = async() => {
         }
     ];
     
+   
+
+const consoleMenu = async() => {
     console.clear();
     console.log(`    
     +-+-+-+-+-+-+-+
@@ -66,6 +69,21 @@ const consoleMenu = async() => {
     +-+-+-+-+-+-+-+`.red)
     const { selectedOption } = await inquirer.prompt(questions);
     return selectedOption;
+}
+
+const pause = async() => {
+    
+    const question = [
+        {
+            type: 'input',
+            name: 'enter',
+            message: `Presione ${ 'enter'.green } para continuar`
+        }
+    ];
+
+
+    console.log('\n');
+    await inquirer.prompt(question);
 }
 
 const readInput = async( message ) => {
@@ -77,7 +95,7 @@ const readInput = async( message ) => {
             message,
             validate( value ) {
                 if( value.length === 0 ) {
-                    return 'Please enter a name for the serie';
+                    return 'Ingrese el nombre de la serie';
                 }
                 return true;
             }
@@ -88,7 +106,82 @@ const readInput = async( message ) => {
     return serieName;
 }
 
+const serieToDelete = async( tareas = [] ) => {
+
+    const choices = tareas.map( (tarea, i) => {
+
+        const idx = `${i + 1}.`.green;
+
+        return {
+            value: tarea.id,
+            name:  `${ idx } ${ tarea.name }`
+        }
+    });
+
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + ' Cancelar borrado de la serie'
+    });
+
+    const questions = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Borar esta serie',
+            choices
+        }
+    ]
+
+    const { id } = await inquirer.prompt(questions);
+    return id;
+}
+
+const Confirmar = async(message) => {
+
+    const question = [
+        {
+            type: 'confirmar',
+            name: 'ok',
+            message
+        }
+    ];
+
+    const { ok } = await inquirer.prompt(question);
+    return ok;
+}   
+
+const showCheckList = async( tareas = [], time ) => {
+    const filteredSeries = tareas.filter(tarea => tarea[time] === null)
+    const choices = filteredSeries.map( (tarea, i) => {
+        //console.log(tarea[time])
+        const idx = `${i + 1}.`.green;
+        return {
+            value: tarea.id,
+            name:  `${ idx } ${ tarea.name }`,
+            checked: ( tarea[time] ) ? true : false
+        }
+    });
+    const questions = [
+        {
+            type: 'checkbox', //el checkbox va a regresar un array con todos los ids selecconados
+            name: 'ids',
+            message: `${time} series:`,
+            choices
+        }
+    ]
+    const { ids } = await inquirer.prompt(questions);
+    return ids;
+}
+
+
+
 module.exports = {
     consoleMenu,
-    readInput
+    pause,
+    readInput,
+    serieToDelete,
+    Confirmar,
+    showCheckList
+}
+
 }
