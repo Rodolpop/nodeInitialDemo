@@ -1,4 +1,4 @@
-//serie model
+
 
 class Serie {
     constructor(name) {
@@ -7,6 +7,7 @@ class Serie {
         this.id = new Date().toISOString(); 
         this.startTime = null; 
         this.endTime = null; 
+<<<<<<< HEAD
 
 
 
@@ -14,3 +15,11 @@ class Serie {
 }
 
 module.exports = Serie;
+=======
+
+    }
+}
+module.exports = Serie;
+
+    
+>>>>>>> feature/serie1
