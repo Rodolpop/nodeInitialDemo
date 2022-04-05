@@ -1,14 +1,29 @@
 require('colors');
 
+const { readDB, saveDB } = require('./helpers/fs');
+
 const { 
     consoleMenu,
-    readInput
-} = require('../helpers/inquirer');
+    pause,
+    readInput,
+    serieToDelete,
+    confirm,
+    showCheckList
+} = require('./helpers/inquirer');
 
-const { readDB } = require('../helpers/fs');
+const Series = require('./models/series');
 
 
 const main = async () => {
+
+    let opt = '';
+    const series = new Series();
+
+    const dbSeries = readDB();
+
+    if (dbSeries) { // cargar tareas
+        series.loadSeriesFromDB(dbSeries);
+    }
 
     do {
         // Print concole main Menu
@@ -43,17 +58,29 @@ const main = async () => {
                 break;
 
             case '7': // Finalizar tarea
-                //
+                    const ids2 = await showCheckList(series._listaSeries, "endTime");
+                    series.endSerie(ids2)
                     break;
 
             case '8': // Borrar
-                //
+                const id = await serieToDelete(series._listaSeries); 
+                if (id !== '0') {
+                    const ok = await confirm('¿Sure?');
+                    if (ok) {
+                        series.deleteSerie(id);
+                        console.log('Serie deleted');
+                    }
+                }
                 break;
         }
 
+        saveDB(series._listaSeries);
+
+        await pause();
 
     } while (opt !== '0');
 
 }
 
 main();
+
