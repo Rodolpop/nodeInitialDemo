@@ -1,6 +1,6 @@
 require('colors');
 
-const { readDB, saveDB } = require('./helpers/fs');
+const { readDB, saveDB } = require('../helpers/fs');
 
 const { 
     consoleMenu,
@@ -9,13 +9,13 @@ const {
     serieToDelete,
     confirm,
     showCheckList
-} = require('./helpers/inquirer');
+} = require('../helpers/inquirer');
 
-const Series = require('./models/series');
+const Series = require('../models/series');
 
 
 const main = async () => {
-
+    console.clear()
     let opt = '';
     const series = new Series();
 
