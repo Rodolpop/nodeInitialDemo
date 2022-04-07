@@ -15,6 +15,9 @@ class Series {
         series.forEach( serie => {
             this._listaSeries.push(serie);
         });
+        
+
+        
     }
 
     serieList() { 
