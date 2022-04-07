@@ -1,3 +1,6 @@
+//serie services
+//CRUD 
+
 const Serie = require('./serie');
 
 class Series {
@@ -20,6 +23,21 @@ class Series {
         
     }
 
+    addSerie( name ) {
+
+        const serie = new Serie(name);
+        this._listaSeries.push(serie)
+    }
+
+    deleteSerie( id = '' ) {
+        for (let i = 0; i < this._listaSeries.length; i++) {
+            if (this._listaSeries[i].id === id) {
+                delete this._listaSeries[i] //me genera un null en el JSON
+                this._listaSeries = this._listaSeries.filter(e => e!== null)
+            }
+        }
+    }
+
     serieList() { 
         this._listaSeries.forEach( (tarea, i) => {
             const num = `Serie nº${i + 1}:`.green;
@@ -32,6 +50,7 @@ class Series {
             console.log(`${ num } ${ name } => ${ state }`);
         });        
     }
+
     serieListByType(type) { 
         this._listaSeries.forEach( (tarea, i) => {
             const num = `Serie nº${i + 1}:`.green;
@@ -59,7 +78,6 @@ class Series {
         }
     }
 
-
     endSerie( ids = [] ) { //recibe un array con 
         for (let i = 0; i < ids.length; i++) {
                 for (let j = 0; j < this._listaSeries.length; j++) {
@@ -74,4 +92,7 @@ class Series {
         }
     }
 }
+
+
+
 module.exports = Series;

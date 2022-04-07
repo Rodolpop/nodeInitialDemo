@@ -11,12 +11,11 @@ const {
     showCheckList
 } = require('../helpers/inquirer');
 
-
 const Series = require('../models/series');
 
 
 const main = async () => {
-
+    console.clear()
     let opt = '';
     const series = new Series();
 
